@@ -1,96 +1,43 @@
-body{
-font-family:'Segoe UI',sans-serif;
-background-color:#0f0f0f;
-margin:0;
-padding:0;
-color:#f5f5f5;
+.hero {
+   height: 100vh;
+  background: linear-gradient(
+      rgba(0, 0, 0, 0.6),
+      rgba(0, 0, 0, 0.9)
+    ),
+    url("https://i.pinimg.com/1200x/f4/b4/68/f4b468c720a97521602be6095de1abec.jpg") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  text-align: center;
 }
+.form-group {
+  background-color: white;
+  width: 500px;
+  padding: 10px;
+  border: 3px solid white;
+  height: 550px;
 
-.form-container{
-width:80%;
-max-width:500px;
-margin:80px auto;
-background:#1c1c1c;
-padding:40px;
-border-radius:15px;
-box-shadow:0 0 25px rgba(0,0,0,0.8);
+  margin: auto;         
+  margin-top: 50px;    
+  text-align: center;
 }
-
-h1{
-text-align:center;
-font-size:36px;
-letter-spacing:2px;
-color:#e3d5bb;
-margin-bottom:10px;
-}
-
-h2{
-text-align:center;
-border-bottom:2px solid #c59d5f;
-padding-bottom:10px;
-margin-bottom:30px;
-color:#c59d5f;
-}
-
-.form-group{
-margin-bottom:20px;
-display:flex;
-flex-direction:column;
-}
-
 label{
-margin-bottom:5px;
-font-size:14px;
-color:#c8aa6f;
+    font-family: 'Cinzel', sans-serif;
+  font-size: 20px;
+  color: black;
+}
+.form-container {
+  font-family: 'Cinzel', sans-serif;
+  font-size: 35px;
+  letter-spacing: 5px;
+  color: #7a6621;
+  text-align: center;
+  margin-top: 5px;
 }
 
-input,textarea{
-padding:10px;
-border:none;
-border-radius:5px;
-background:#2a2a2a;
-color:#f5f5f5;
-font-size:14px;
-outline:none;
-transition:0.3s;
-}
-
-textarea{
-resize:none;
-height:80px;
-}
-
-input:focus,textarea:focus{
-border:1px solid #c59d5f;
-}
-
-button{
-width:100%;
-padding:12px;
-background:#c59d5f;
-border:none;
-border-radius:8px;
-font-size:16px;
-font-weight:bold;
-cursor:pointer;
-color:#0f0f0f;
-transition:0.3s;
-}
-
-button:hover{
-background:#e3d5bb;
-transform:scale(1.03);
-}
-
-@media(max-width:600px){
-
-.form-container{
-width:95%;
-padding:25px;
-}
-  
-h1{
-font-size:28px;
-}
-
+.form {
+  padding: 30px;
+  background-color: white;
+  border: 3px solid black;
+  margin-top: 10px;
 }
