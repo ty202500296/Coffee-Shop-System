@@ -14,10 +14,9 @@ body {
   line-height: 1.6;
 }
 
-/* Logo */
 .piclogo {
   width: 130px;
-  height: auto;   /* better for images */
+  height: auto; 
   background: none;
   padding: 0;
   display: block;
@@ -28,9 +27,9 @@ body {
   color: #d4af37;
   font-size: 60px;
 }
-/* Navbar */
-.navbar {
 
+
+.navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -42,7 +41,7 @@ body {
   font-family: 'Playfair Display', serif;
   font-size: 24px;
   letter-spacing: 2px;
-  color: #d4af37; /* gold */
+  color: #d4af37;
 }
 
 .navbar nav a {
@@ -61,7 +60,7 @@ body {
   color: #000;
 }
 
-/* Hero */
+
 .hero {
   height: 90vh;
   background: linear-gradient(
@@ -93,7 +92,7 @@ body {
   color: #cccccc;
 }
 
-/* Button */
+
 .btn {
   display:inline-flex;
   padding: 14px 36px;
@@ -112,7 +111,6 @@ body {
   color: #000;
 }
 
-/* About */
 .about {
   padding: 100px 80px;
   background-color: #0f0f0f;
@@ -131,32 +129,31 @@ body {
   color: white;
   margin-bottom: 20px;
 }
-.whyy {
-  display:inline-flex;
-  border: 1px solid #d4af37;
-  padding: 5px 5px;
-  margin-left: 10px;
-  text-decoration: none;
-  color: #e5e5e5;
-  font-weight: 400;
-  transition: color 0.3s;
+.whyy{
+  display: flex;;
+  column-gap: 50px;
+  justify-content: center;
+  text-align: center;
+  color: black;
+
+}
+.box {
+   display: flex;
+  flex-direction: column;  
+  justify-content: center; 
+  align-items: center;    
+  padding: 30px;
   width: 300px;
-  height: 300px;
+  height: 200px;
+  text-align: center;
+  gap: 10px;               
 }
-
-.whyy:hover {
-  background-color: #d4af37;
-  color: #000;
-}
-
-
 
 .about p {
   color: #bfbfbf;
   font-size: 17px;
 }
 
-/* Footer */
 .footer {
   text-align: center;
   padding: 24px;
@@ -165,7 +162,6 @@ body {
   font-size: 14px;
 }
 
-/* Responsive */
 @media (max-width: 768px) {
   .navbar {
     padding: 20px 32px;
