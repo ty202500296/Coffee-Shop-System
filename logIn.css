@@ -1,0 +1,38 @@
+
+.hero {
+   height: 100vh;
+  background: linear-gradient(
+      rgba(0, 0, 0, 0.6),
+      rgba(0, 0, 0, 0.9)
+    ),
+    url("https://i.pinimg.com/1200x/f4/b4/68/f4b468c720a97521602be6095de1abec.jpg") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  padding: 0px;
+}
+
+#all {
+  background-color: white;
+  width: 350px;
+  padding: 20px;
+  border: 3px solid white;
+
+  margin: auto;         
+  margin-top: 100px;    
+  text-align: center;
+}
+
+#Login {
+  font-family: 'Cinzel', sans-serif;
+  font-size: 60px;
+  letter-spacing: 5px;
+  color: #7a6621;
+}
+
+.form {
+  padding: 30px;
+  background-color: white;
+  border: 3px solid black;
+}
+
+
