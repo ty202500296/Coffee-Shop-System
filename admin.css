@@ -1,0 +1,73 @@
+body {
+    font-family: Arial;
+    margin: 0;
+     background: linear-gradient(
+      rgba(0, 0, 0, 0.6),
+      rgba(0, 0, 0, 0.9)
+    ),
+    url("https://i.pinimg.com/1200x/f4/b4/68/f4b468c720a97521602be6095de1abec.jpg") center/cover no-repeat;
+}
+.name{
+  color: #d4af37;
+  font-size: 50px;
+  font-family: 'Playfair Display', serif;
+  letter-spacing: 2px;
+}
+header {
+    background: black;
+    color: white;
+    padding: 15px;
+    text-align: center;
+}
+
+nav a {
+    display:inline-flex;
+  border: 1px;
+  padding: 5px 5px;
+  margin-left: 10px;
+  text-decoration: none;
+  color: #e5e5e5;
+  font-weight: 400;
+  transition: color 0.3s;
+  border-radius: 10%;
+}
+nav a:hover {
+  background-color: #d4af37;
+  color: #000;
+}
+
+
+.dashboard {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    padding: 20px;
+}
+
+.card {
+    background: transparent;
+    padding: 20px;
+    border: 2px solid white;
+    border-radius: 10px;
+    text-align: center;
+    color: white;
+}
+.card:hover {
+  background-color: white;
+  color: #000;
+}
+
+
+button {
+    padding: 8px 15px;
+    background: #d4af37;
+    color: black;
+    border: none;
+    cursor: pointer;
+    border-radius: 10%;
+}
+
+button:hover {
+    background: black;
+    color: white;
+}
