@@ -1,0 +1,141 @@
+.div1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: Arial;
+    margin: 0;
+     background: linear-gradient(
+      rgba(0, 0, 0, 0.6),
+      rgba(0, 0, 0, 0.9)
+    ),
+    url("https://i.pinimg.com/1200x/9a/55/dc/9a55dcc0af24ad05f76206bf8bb3363a.jpg") center/cover no-repeat;
+    height: 400px;
+}
+.our{
+    
+     font-family: 'Playfair Display', serif;
+    font-size: 50px;
+    letter-spacing: 2px;
+    color: white;
+    text-align: center;
+}
+#journey{
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    letter-spacing: 2px;
+    color: white;
+    margin-top: 15px;
+}
+.navbar{
+  position:sticky;
+  top:0;
+  height: 130px;
+}
+body {
+  background-color: #0b0b0b;
+  color: #e5e5e5;
+  line-height: 1.6;
+}
+
+.piclogo {
+  width: 130px;
+  height: auto; 
+  background: none;
+  padding: 0;
+  display: block;
+  background-color: black;
+  margin-left: 50px;
+}
+.name{
+  color: #d4af37;
+  font-size: 60px;
+}
+
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 80px;
+  background-color: black;
+  height: 80px;
+}
+
+.logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  letter-spacing: 2px;
+  color: #d4af37;
+}
+.navbar nav a {
+  display:inline-flex;
+  border: 1px;
+  padding: 5px 5px;
+  margin-left: 10px;
+  text-decoration: none;
+  color: #e5e5e5;
+  font-weight: 400;
+  transition: color 0.3s;
+  border-radius: 10%;
+}
+
+.navbar nav a:hover {
+  background-color: #d4af37;
+  color: #000;
+}
+.container {
+    display: flex;
+    align-items: center;
+}
+
+.image {
+    width: 50%;
+    height: 547px;
+}
+.div2{
+    width: 50%;
+    margin-left: auto; 
+    padding: 20px;
+    background-color: white;
+    color: black;
+    height: 500px;
+    font-size: 16px;
+}
+#welcome{
+    font-family: 'Playfair Display', serif;
+    font-size: 50px;
+    letter-spacing: 2px;
+    color: black;
+    text-align: center;
+}
+.mission{
+    background-color: black; 
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#headmission{
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    font-size: 50px;
+    letter-spacing: 2px;
+    color: #d4af37;
+}
+#serve{
+    font-family: 'Playfair Display', serif;
+    font-size: 15px;
+    letter-spacing: 1x;
+    color: white;
+    width: 600px;
+}
+.footer {
+  text-align: center;
+  padding: 10px;
+  background-color: #A07F3A;
+  color: black;
+  font-size: 14px;
+  height: 55px;
+  margin-bottom: 0px;
+}
+
