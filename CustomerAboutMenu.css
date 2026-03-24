@@ -1,141 +1,147 @@
-.div1{
+/* GENERAL STYLES */
+body {
+    background-color: #0b0b0b;
+    color: #e5e5e5;
+    line-height: 1.6;
+    margin: 0;
+    font-family: 'Playfair Display', sans-serif;
+}
+
+/* NAVBAR */
+.navbar {
     display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 80px;
+    background-color: black;
+    position: sticky;
+    top: 0;
+    height: 80px;
+    z-index: 100;
+}
+
+#name {
+    color: #d4af37;
+    font-size: 60px;
+    font-family: 'Playfair Display', serif;
+}
+
+.navbar nav a {
+    display: inline-flex;
+    padding: 5px 10px;
+    margin-left: 10px;
+    text-decoration: none;
+    color: #e5e5e5;
+    font-weight: 400;
+    border-radius: 10%;
+    transition: 0.3s;
+}
+
+.navbar nav a:hover {
+    background-color: #d4af37;
+    color: black;
+}
+
+/* HERO / OUR STORY */
+.div1 {
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    font-family: Arial;
     margin: 0;
-     background: linear-gradient(
-      rgba(0, 0, 0, 0.6),
-      rgba(0, 0, 0, 0.9)
-    ),
-    url("https://i.pinimg.com/1200x/9a/55/dc/9a55dcc0af24ad05f76206bf8bb3363a.jpg") center/cover no-repeat;
     height: 400px;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(
+            rgba(0, 0, 0, 0.6),
+            rgba(0, 0, 0, 0.9)
+        ),
+        url("https://i.pinimg.com/1200x/9a/55/dc/9a55dcc0af24ad05f76206bf8bb3363a.jpg") center/cover no-repeat;
+    text-align: center;
 }
-.our{
-    
-     font-family: 'Playfair Display', serif;
+
+.our {
+    font-family: 'Playfair Display', serif;
     font-size: 50px;
     letter-spacing: 2px;
     color: white;
-    text-align: center;
 }
-#journey{
+
+#journey {
     font-family: 'Playfair Display', serif;
     font-size: 20px;
     letter-spacing: 2px;
     color: white;
     margin-top: 15px;
 }
-.navbar{
-  position:sticky;
-  top:0;
-  height: 130px;
-}
-body {
-  background-color: #0b0b0b;
-  color: #e5e5e5;
-  line-height: 1.6;
-}
 
-.piclogo {
-  width: 130px;
-  height: auto; 
-  background: none;
-  padding: 0;
-  display: block;
-  background-color: black;
-  margin-left: 50px;
-}
-.name{
-  color: #d4af37;
-  font-size: 60px;
-}
-
-
-.navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 24px 80px;
-  background-color: black;
-  height: 80px;
-}
-
-.logo {
-  font-family: 'Playfair Display', serif;
-  font-size: 24px;
-  letter-spacing: 2px;
-  color: #d4af37;
-}
-.navbar nav a {
-  display:inline-flex;
-  border: 1px;
-  padding: 5px 5px;
-  margin-left: 10px;
-  text-decoration: none;
-  color: #e5e5e5;
-  font-weight: 400;
-  transition: color 0.3s;
-  border-radius: 10%;
-}
-
-.navbar nav a:hover {
-  background-color: #d4af37;
-  color: #000;
-}
+/* CONTAINER (IMAGE + TEXT) */
 .container {
     display: flex;
-    align-items: center;
+    flex-wrap: wrap;
+    align-items: stretch;
+    justify-content: center;
 }
 
 .image {
-    width: 50%;
-    height: 547px;
+    width: 60%;
+    max-width: 600px;
+    height: auto;
+    object-fit: cover;
 }
-.div2{
-    width: 50%;
-    margin-left: auto; 
+
+.div2 {
+    width: 60%;
+    min-width: 300px;
     padding: 20px;
     background-color: white;
     color: black;
-    height: 500px;
     font-size: 16px;
+    box-sizing: border-box;
 }
-#welcome{
+
+#welcome {
     font-family: 'Playfair Display', serif;
     font-size: 50px;
     letter-spacing: 2px;
     color: black;
     text-align: center;
+    margin-bottom: 20px;
 }
-.mission{
-    background-color: black; 
-    height: 400px;
+
+/* MISSION SECTION */
+.mission {
+    background-color: black;
+    min-height: 400px;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-}
-#headmission{
     text-align: center;
+    padding: 20px;
+}
+
+#headmission {
     font-family: 'Playfair Display', serif;
     font-size: 50px;
     letter-spacing: 2px;
     color: #d4af37;
-}
-#serve{
-    font-family: 'Playfair Display', serif;
-    font-size: 15px;
-    letter-spacing: 1x;
-    color: white;
-    width: 600px;
-}
-.footer {
-  text-align: center;
-  padding: 10px;
-  background-color: #A07F3A;
-  color: black;
-  font-size: 14px;
-  height: 55px;
-  margin-bottom: 0px;
+    margin-bottom: 20px;
 }
 
+#serve {
+    font-family: 'Playfair Display', serif;
+    font-size: 15px;
+    letter-spacing: 1px;
+    color: white;
+    max-width: 600px;
+}
+
+/* FOOTER */
+.footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #A07F3A;
+    color: black;
+    font-size: 14px;
+    height: 55px;
+}
