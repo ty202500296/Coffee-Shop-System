@@ -1,20 +1,22 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <title>Login</title>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Black Cup - Sign In</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="logIn.css">
-</head>
-<body>
-
-<h2>Login</h2>
-
-<form action="LoginServlet" method="post">
-    Username: <input type="text" name="username" required><br><br>
-    Password: <input type="password" name="password" required><br><br>
-    <input type="submit" value="Login">
-</form>
-
-<p>New Customer? <a href="register.html">Register here</a></p>
-
-</body>
+  </head>
+  <body>
+    <section class="hero">
+      <div class="form-group">
+        <h2 class="form-container">Sign In</h2>
+        <form class="form" method="post">
+          Username: <input type="text" required><br><br>
+          Password: <input type="password" required><br><br>
+          <button type="submit">Login</button><br><br>
+          <p>Don't have an account?<a href="registration.html" id="registration">  Register</a></p>
+        </form>
+      </div>
+    </section>
+  </body>
 </html>
