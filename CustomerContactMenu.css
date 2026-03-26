@@ -1,1 +1,149 @@
+body {
+    margin: 0;
+    background-color: #0b0b0b;
+    color: #e5e5e5;
+    font-family: 'Playfair Display', sans-serif;
+}
 
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 80px;
+    background-color: black;
+    position: sticky;
+    top: 0;
+}
+
+#name {
+    color: #d4af37;
+    font-size: 50px;
+}
+
+.navbar nav a {
+    color: #e5e5e5;
+    margin-left: 15px;
+}
+
+.navbar nav a:hover {
+    background-color: #d4af37;
+    color: black;
+    padding: 5px 10px;
+}
+
+
+.hero-contact {
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.9)),
+    url("https://i.pinimg.com/1200x/9a/55/dc/9a55dcc0af24ad05f76206bf8bb3363a.jpg");
+
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-contact h1 {
+    font-size: 50px;
+    color: white;
+}
+
+.hero-contact p {
+    color: #ccc;
+}
+
+
+.contact-container {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 50px;
+    justify-content: center;
+    gap: 40px;
+}
+
+
+.contact-info {
+    max-width: 400px;
+}
+
+.contact-info h2 {
+    color: #d4af37;
+}
+
+
+.contact-form {
+    background: white;
+    color: black;
+    padding: 30px;
+    border-radius: 10px;
+    width: 350px;
+}
+
+.contact-form h2 {
+    margin-bottom: 20px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: none;
+    border-bottom: 1px solid #ccc;
+}
+
+.contact-form button {
+    width: 100%;
+    padding: 10px;
+    background-color: #d4af37;
+    border: none;
+    cursor: pointer;
+}
+
+.contact-form button:hover {
+    background-color: black;
+    color: white;
+}
+
+
+.footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #A07F3A;
+    color: black;
+}
+
+  gap: 20px;
+}
+
+.social-icons {
+‎  display: flex;
+‎  gap: 20px;
+‎}
+‎
+‎.social-icons a {
+‎  display: flex;
+‎  justify-content: center;
+‎  align-items: center;
+‎  width: 50px;
+‎  height: 50px;
+‎  border-radius: 50%;
+‎  color: white;
+‎  font-size: 24px;
+‎  text-decoration: none;
+‎  transition: transform 0.3s, background-color 0.3s;
+‎}
+‎
+‎.social-icons a.facebook { background-color: #3b5998; }
+‎.social-icons a.instagram { background-color: #e4405f; }
+‎.social-icons a.tiktok { background-color: #000000; }
+‎.social-icons a.twitter { background-color: #1da1f2; }
+‎
+‎.social-icons a:hover {
+‎  transform: scale(1.2);
+‎  opacity: 0.8;
+‎}
