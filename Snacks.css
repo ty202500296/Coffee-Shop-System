@@ -1,0 +1,105 @@
+/* GENERAL STYLES */
+body {
+    background-color: #0b0b0b;
+    color: #e5e5e5;
+    line-height: 1.6;
+    margin: 0;
+    font-family: 'Playfair Display', sans-serif;
+}
+
+/* NAVBAR */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 80px;
+    background-color: black;
+    position: sticky;
+    top: 0;
+    height: 80px;
+    z-index: 100;
+}
+
+#name {
+    color: #d4af37;
+    font-size: 60px;
+    font-family: 'Playfair Display', serif;
+}
+
+.navbar nav a {
+    display: inline-flex;
+    padding: 5px 10px;
+    margin-left: 10px;
+    text-decoration: none;
+    color: #e5e5e5;
+    font-weight: 400;
+    border-radius: 10%;
+    transition: 0.3s;
+}
+
+.navbar nav a:hover {
+    background-color: #d4af37;
+    color: black;
+}
+/* MENU SECTION */
+.menu-categories {
+    display: flex;
+    justify-content: center;
+    margin: 40px 0;
+    gap: 100px;
+}
+.choice{
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 23px;
+    display: inline-flex;
+    margin-left: 10px;
+    text-decoration: none;
+    font-weight: 400;
+    border-radius: 10%;
+    transition: 0.3s;
+}
+.choice:hover {
+    background-color: #d4af37;
+    color: black;
+}
+#container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 70px; 
+  height: 500px;
+
+}
+.prize {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 20px; /* make it smaller */
+}
+.image{
+    width: 180px;
+    height: 180px;
+    border-radius: 8px;
+}
+.box {
+  position: relative;
+  width: 300px;
+  height: 350px;
+  padding: 30px;
+  background-color: rgb(228, 162, 63);
+  color: black;
+  border-radius: 8px;
+  text-align: center;
+
+}
+/* FOOTER */
+.footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #A07F3A;
+    color: black;
+    font-size: 14px;
+    height: 55px;
+}
