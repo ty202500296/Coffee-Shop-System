@@ -1,22 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8">
-    <title>Black Cup - Sign In</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="logIn.css">
-  </head>
-  <body>
-    <section class="hero">
-      <div class="form-group">
-        <h2 class="form-container">Sign In</h2>
-        <form class="form" method="post">
-          Username: <input type="text" required><br><br>
-          Password: <input type="password" required><br><br>
-          <button type="submit">Login</button><br><br>
-          <p>Don't have an account?<a href="registration.html" id="registration">  Register</a></p>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Black Cup - Login</title>
+    <link rel="stylesheet" href="ONE.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+</head>
+
+<body class="page-login">
+
+    <div class="login-container">
+        <h2>Login to BLACK CUP</h2>
+        <form id="loginForm">
+            <div class="input-group">
+                <label>Username</label>
+                <input type="text" id="username" name="username" required>
+            </div>
+            <div class="input-group password-input">
+                <label>Password</label>
+                <div class="password-field">
+                    <input type="password" id="password" name="password" required>
+
+                    
+                </div>
+
+
+            </div>
+            <div class="options"
+                style="display:flex; justify-content:space-between; margin-bottom:15px; font-size:12px;">
+                <label style="color:#aaa;"><input type="checkbox" style="width:auto; margin-right:5px;"> Remember
+                    me</label>
+                <a href="#" style="color:#d4af37;">Forgot Password?</a>
+            </div>
+            <button type="submit" class="btn btn-primary" style="width:100%;">LOGIN</button>
         </form>
-      </div>
-    </section>
-  </body>
+        <p class="text-center mt-2" style="font-size:14px; color:#aaa;">
+            Don't have an account? <a href="REGISTER.html" style="color:#d4af37;">Sign up</a>
+        </p>
+    </div>
+
+    <script src="ONE.js"></script>
+</body>
+
 </html>
+
