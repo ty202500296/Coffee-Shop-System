@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Orders - Black Cup</title>
+    <link rel="stylesheet" href="ONE.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header class="navbar">
+    <div class="navbar-left">
+        <div id="userGreeting">Hello, Guest</div>
+    </div>
+    <div class="navbar-center">
+        <div id="name">BLACK CUP</div>
+    </div>
+    <div class="navbar-right">
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="menu.html">Menu</a>
+          <a href="orders.html" class="active">Orders</a>
+          <a href="receipt.html">Receipt</a>
+          <a href="loyalty.html">Loyalty</a>
+          <a href="contact.html">Contact</a>
+          <a href="#" class="btn-logout" style="color:#dc3545;">Logout</a>
+        </nav>
+    </div>
+</header>
+
+<div class="container" style="padding: 40px 80px;">
+    <h2 style="color:#d4af37; margin-bottom:30px;">My Orders</h2>
+    
+    <table class="system-table">
+        <thead>
+            <tr>
+                        <th>Date</th>
+                <th>Order ID</th>
+                <th>Total</th>
+                <th>Status</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody id="ordersBody">
+            
+        </tbody>
+    </table>
+</div>
+
+<footer class="footer">
+    <p>&copy; 2026 Black Cup. All Rights Reserved.</p>
+</footer>
+
+<script src="ONE.js"></script>
+</body>
+</html>
+
+

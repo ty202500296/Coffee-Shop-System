@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+
+    <title>Customer Menu</title>
+
+    <link rel="stylesheet" href="ONE.css">
+
+</head>
+
+<body>
+
+<header class="navbar">
+    <div class="navbar-left">
+        <div id="userGreeting">Hello, Guest</div>
+    </div>
+    <div class="navbar-center">
+        <div id="name">BLACK CUP</div>
+    </div>
+    <div class="navbar-right">
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="menu.html" class="active">Menu</a>
+          <a href="orders.html">Orders</a>
+          <a href="receipt.html">Receipt</a>
+          <a href="loyalty.html">Loyalty</a>
+          <a href="contact.html">Contact</a>
+          <a href="#" class="btn-logout" style="color:#dc3545;">Logout</a>
+        </nav>
+    </div>
+</header>
+
+<div class="main-layout">
+
+    <div class="menu-section">
+
+        <div class="menu-categories">
+            <button class="choice active" data-category="coffee">Coffee</button>
+            <button class="choice" data-category="non_coffee">Non-Coffee</button>
+            <button class="choice" data-category="snacks">Snacks</button>
+        </div>
+
+        <div id="menuGrid" class="menu-grid"></div>
+
+    </div>
+
+    <div class="cart-section">
+
+        <div class="cart-container">
+
+            <h3>Your Order</h3>
+
+            <ul id="cartItems"></ul>
+
+            <div class="cart-total">
+                <span>Total</span>
+                <span id="cartTotal">₱0.00</span>
+            </div>
+
+            <button id="checkoutBtn" class="btn btn-primary">
+                PROCEED TO CHECKOUT
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<footer class="footer">
+    <p>&copy; 2026 Black Cup. All Rights Reserved.</p>
+</footer>
+
+<script src="ONE.js"></script>
+
+</body>
+</html>
+
+

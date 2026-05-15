@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Black Cup - Receipt</title>
+    <link rel="stylesheet" href="ONE.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header class="navbar">
+    <div class="navbar-left">
+        <div id="userGreeting">Hello, Guest</div>
+    </div>
+    <div class="navbar-center">
+        <div id="name">BLACK CUP</div>
+    </div>
+    <div class="navbar-right">
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="menu.html">Menu</a>
+          <a href="orders.html">Orders</a>
+          <a href="receipt.html" class="active">Receipt</a>
+          <a href="loyalty.html">Loyalty</a>
+          <a href="contact.html">Contact</a>
+          <a href="#" class="btn-logout" style="color:#dc3545;">Logout</a>
+        </nav>
+    </div>
+</header>
+
+<div class="container" style="padding: 40px 80px;">
+    <h2 style="color:#d4af37; margin-bottom:30px;">Receipt History</h2>
+    <div class="table-container">
+        <table class="system-table">
+            <thead>
+                <tr>
+                    <th>Order Ref #</th>
+                    <th>Date</th>
+                    <th>Total</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="receiptBody">
+                
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<footer class="footer">
+    <p>&copy; 2026 Black Cup. All Rights Reserved.</p>
+</footer>
+
+<script src="ONE.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", () => {
+        const receipts = JSON.parse(localStorage.getItem("orders")) || [];
+        const body = document.getElementById("receiptBody");
+        const currentUser = JSON.parse(localStorage.getItem("currentUser")) || {};
+        document.getElementById("userGreeting").textContent = `Hello, ${currentUser.firstname || currentUser.username || 'Guest'}`;
+        body.innerHTML = "";
+        receipts.forEach(order => {
+            body.innerHTML += `
+                <tr>
+                    <td>${order.id || 'N/A'}</td>
+                    <td>${new Date(order.created_at).toLocaleString()}</td>
+                    <td>₱${Number(order.total || 0).toFixed(2)}</td>
+                    <td><span class="badge badge-${order.status.toLowerCase()}">${order.status}</span></td>
+                    <td><button class="btn btn-sm" onclick="viewReceipt('${order.id}')">VIEW</button></td>
+                </tr>
+            `;
+        });
+    });
+</script>
+</body>
+</html>
+
+

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Black Cup - Register</title>
+    <link rel="stylesheet" href="ONE.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+</head>
+<body class="page-register">
+
+    <div class="register-container">
+        <form id="registerForm" class="register-form">
+            <h2>Create an Account</h2>
+            
+            <div class="input-group">
+                <label>Surname (Last Name)</label>
+                <input type="text" name="lastname" required>
+            </div>
+            <div class="input-group">
+                <label>First Name</label>
+                <input type="text" name="firstname" required>
+            </div>
+            
+            <div class="input-group">
+                <label>Middle Name</label>
+                <input type="text" name="middlename">
+            </div>
+            <div class="input-group">
+                <label>Birthday</label>
+                <input type="date" name="birthday">
+            </div>
+
+            <div class="input-group">
+                <label>Gender</label>
+                <select name="gender">
+                    <option value="">Select...</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label>Phone Number</label>
+                <input type="text" name="phone">
+            </div>
+
+            <div class="input-group full-width">
+                <label>Barangay</label>
+                <select name="barangay" id="barangaySelect" required>
+                    <option value="">Select Barangay</option>
+                </select>
+            </div>
+            
+            <div class="input-group full-width">
+                <label>Street Address</label>
+                <input type="text" name="street" required>
+            </div>
+
+            <div class="input-group">
+                <label>Username</label>
+                <input type="text" name="username" required>
+            </div>
+            <div class="input-group password-input">
+                <label>Password</label>
+                <input type="password" name="password" required>
+                
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="margin-top:10px;">SIGN UP</button>
+            
+            <div class="full-width" style="text-align:center; margin-top:15px;">
+                <p style="font-size:14px; color:#aaa;">Already have an account? <a href="login.html" style="color:gold;">Log in here</a></p>
+            </div>
+        </form>
+        
+        <div id="pinResult" class="register-form" style="display:none; margin-top:20px; text-align:center;">
+            <h3 style="color:gold; margin-bottom:10px; grid-column:span 2;">Registration Successful!</h3>
+            <p style="grid-column:span 2;">Your unique loyalty PIN is:</p>
+            <h1 id="loyaltyPin" style="font-size:48px; letter-spacing:10px; margin:20px 0; color:#fff; grid-column:span 2;">0000</h1>
+            <p style="color:#ffc107; font-size:14px; margin-bottom:20px; grid-column:span 2;">Please take a screenshot or write it down. You will need this for claiming rewards!</p>
+            <a href="login.html" class="btn btn-primary" style="width:100%; grid-column:span 2; text-align:center;">Proceed to Login</a>
+        </div>
+    </div>
+
+    <script src="ONE.js"></script>
+</body>
+</html>
+
+
+

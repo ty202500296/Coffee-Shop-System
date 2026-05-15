@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Black Cup - Cashier Dashboard</title>
+    <link rel="stylesheet" href="ONE.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+
+    <div class="dashboard-layout">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2 style="color:#d4af37; font-family:'Playfair Display', serif;">BLACK CUP</h2>
+                <p style="color:#ccc; font-size:14px;">Cashier: <span id="userName"></span></p>
+            </div>
+            <nav class="sidebar-nav">
+                <a data-tab="incoming" class="active"><i class="fas fa-bell"></i> Incoming Orders</a>
+                <a data-tab="active"><i class="fas fa-spinner"></i> Active Orders</a>
+                <a data-tab="completed"><i class="fas fa-check-circle"></i> Completed Today</a>
+                <a data-tab="payments"><i class="fas fa-money-bill"></i> Payments</a>
+                <a href="#" class="btn-logout" style="color:#dc3545; margin-top:50px;"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </nav>
+        </aside>
+        
+        <main class="main-content">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3>PENDING ORDERS</h3>
+                    <div class="value" id="statPending">0</div>
+                </div>
+                <div class="stat-card">
+                    <h3>ACTIVE ORDERS</h3>
+                    <div class="value" id="statActive">0</div>
+                </div>
+                <div class="stat-card">
+                    <h3>COMPLETED TODAY</h3>
+                    <div class="value" id="statCompleted">0</div>
+                </div>
+                <div class="stat-card">
+                    <h3>TODAY'S SALES</h3>
+                    <div class="value" id="statSales">₱0.00</div>
+                </div>
+            </div>
+
+            <div id="incoming" class="tab-pane">
+                <h2 style="margin-bottom:20px; border-bottom:1px solid #333; padding-bottom:10px;">Incoming Orders - Transaction Review</h2>
+                <div id="incomingOrdersDetails" style="display:grid; gap:20px;">
+                    
+                </div>
+            </div>
+
+            <div id="active" class="tab-pane" style="display:none;">
+                <h2 style="margin-bottom:20px; border-bottom:1px solid #333; padding-bottom:10px;">Active Orders</h2>
+                <div id="activeOrders" class="orders-grid">
+                    
+                </div>
+            </div>
+
+            <div id="completed" class="tab-pane" style="display:none;">
+                <h2 style="margin-bottom:20px; border-bottom:1px solid #333; padding-bottom:10px;">Completed Today</h2>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Order Ref</th>
+                                <th>Customer</th>
+                                <th>Total</th>
+                                <th>Payment</th>
+                                <th>Time</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="completedOrdersBody">
+                            
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            
+            <div id="payments" class="tab-pane" style="display:none;">
+                <h2 style="margin-bottom:20px; border-bottom:1px solid #333; padding-bottom:10px; color:#d4af37;">Online Payment Verification</h2>
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr><th>Order Ref</th><th>Customer</th><th>Total</th><th>Method</th><th>Ref #</th><th>Account</th><th>Pay Status</th><th>Actions</th></tr>
+                        </thead>
+                        <tbody id="paymentsTableBody"></tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    
+    <div id="receiptModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); z-index:9999; justify-content:center; align-items:center;">
+        <div style="background:#fff; color:#000; padding:40px; border-radius:8px; width:400px; max-width:90%; position:relative;" id="receiptPrintArea">
+            <h2 style="text-align:center; font-family:'Playfair Display', serif; margin-bottom:5px;">BLACK CUP</h2>
+            <p style="text-align:center; font-size:12px; color:#555; margin-bottom:20px;">Official Receipt</p>
+            <div id="receiptContent"></div>
+            <div style="margin-top:30px; display:flex; gap:10px;" class="no-print">
+                <button class="btn btn-primary" style="flex:1;" onclick="printReceipt()">Print</button>
+                <button class="btn" style="flex:1; background:#ccc; color:#000;" onclick="closeReceipt()">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="ONE.js"></script>
+</body>
+</html>
+
+
+

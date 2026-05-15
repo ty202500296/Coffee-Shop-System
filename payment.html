@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Black Cup - Payment</title>
+    <link rel="stylesheet" href="ONE.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <div class="dashboard-layout">
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h2 style="color:#d4af37; font-family:'Playfair Display', serif;">BLACK CUP</h2>
+                <p style="color:#ccc; font-size:14px;"><span id="userRole">User</span>: <span id="userName"></span></p>
+            </div>
+            <nav class="sidebar-nav">
+                <a data-tab="customer" class="active"><i class="fas fa-user"></i> Customer Payment</a>
+                <a data-tab="cashier" onclick="checkRole('cashier')"><i class="fas fa-cash-register"></i> Cashier Verify</a>
+                <a data-tab="admin" onclick="checkRole('admin')"><i class="fas fa-chart-line"></i> Admin Monitor</a>
+                <a href="#" class="btn-logout" style="color:#dc3545; margin-top:50px;"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </nav>
+        </aside>
+        
+        <main class="main-content">
+            
+            <div id="customer" class="tab-pane">
+                <h2 style="margin-bottom:20px; border-bottom:1px solid #333; padding-bottom:10px; color:#d4af37;">Payment Methods</h2>
+                
+                <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:20px; margin-bottom:30px;">
+                    
+                    
+                    <div class="payment-card" onclick="selectPaymentMethod('cod')" style="background:#111; border:2px solid #ccc; padding:20px; border-radius:8px; cursor:pointer; transition:all 0.3s;">
+                        <h3 style="color:#d4af37; margin-bottom:10px;">💵 Cash on Delivery</h3>
+                        <p style="color:#ccc; font-size:14px;">Pay when your order arrives</p>
+                        <p style="color:#28a745; font-weight:bold; margin-top:15px;">Available</p>
+                    </div>
+                    
+                    
+                    <div class="payment-card" onclick="selectPaymentMethod('gcash')" style="background:#111; border:2px solid #ccc; padding:20px; border-radius:8px; cursor:pointer; transition:all 0.3s;">
+                        <h3 style="color:#d4af37; margin-bottom:10px;">📱 GCash</h3>
+                        <p style="color:#ccc; font-size:14px;">Pay via GCash wallet</p>
+                        <p style="color:#28a745; font-weight:bold; margin-top:15px;">Available</p>
+                    </div>
+                    
+                    
+                    <div class="payment-card" onclick="selectPaymentMethod('paymaya')" style="background:#111; border:2px solid #ccc; padding:20px; border-radius:8px; cursor:pointer; transition:all 0.3s;">
+                        <h3 style="color:#d4af37; margin-bottom:10px;">💳 PayMaya</h3>
+                        <p style="color:#ccc; font-size:14px;">Pay via PayMaya card</p>
+                        <p style="color:#28a745; font-weight:bold; margin-top:15px;">Available</p>
+                    </div>
+                    
+                </div>
+                
+                
+                <div id="paymentDetailsForm" style="display:none; background:#111; padding:25px; border-radius:8px; border:1px solid #333; max-width:600px;">
+                    <h3 style="color:#d4af37; margin-bottom:20px;">Payment Details</h3>
+                    
+                    
+                    <div id="codDetails" style="display:none;">
+                        <p style="color:#ccc; margin-bottom:10px;">Your order will be delivered shortly. You can pay with:</p>
+                        <ul style="color:#ccc; margin-bottom:20px;">
+                            <li>Cash</li>
+                            <li>Card (if available at delivery)</li>
+                        </ul>
+                        <button class="btn btn-primary" style="width:100%;">Continue with COD</button>
+                    </div>
+                    
+                    
+                    <div id="onlinePaymentDetails" style="display:none;">
+                        <div style="background:#1a1a1a; padding:15px; border-radius:8px; margin-bottom:20px;">
+                            <h4 style="color:#d4af37; margin-bottom:10px;">Step 1: Scan QR Code</h4>
+                            <div style="text-align:center; background:white; padding:20px; border-radius:8px; margin-bottom:15px;">
+                                <div id="qrCodeDisplay" style="width:200px; height:200px; margin:0 auto; background:#e0e0e0; display:flex; align-items:center; justify-content:center; border-radius:8px;">
+                                    <p style="color:#999; font-size:12px;">QR Code will appear here</p>
+                                </div>
+                            </div>
+                            <p style="color:#ccc; font-size:12px; text-align:center;">Scan with your phone to proceed to payment</p>
+                        </div>
+                        
+                        <div style="background:#1a1a1a; padding:15px; border-radius:8px; margin-bottom:20px;">
+                            <h4 style="color:#d4af37; margin-bottom:15px;">Step 2: Enter Payment Details</h4>
+                            <div class="input-group">
+                                <label>Account Name</label>
+                                <input type="text" id="paymentAccountName" placeholder="Name on account" required>
+                            </div>
+                            <div class="input-group">
+                                <label>Reference Number</label>
+                                <input type="text" id="paymentRefNumber" placeholder="Transaction reference" required>
+                            </div>
+                        </div>
+                        
+                        <div style="background:#1a1a1a; padding:15px; border-radius:8px; margin-bottom:20px;">
+                            <h4 style="color:#d4af37; margin-bottom:10px;">Step 3: Upload Receipt Screenshot</h4>
+                            <div class="input-group">
+                                <input type="file" id="paymentScreenshot" accept="image/*">
+                            </div>
+                        </div>
+                        
+                        <button class="btn btn-primary" id="submitOnlinePaymentBtn" style="width:100%;">Confirm Payment</button>
+                    </div>
+                </div>
+                
+            </div>
+
+            
+            <div id="cashier" class="tab-pane" style="display:none;">
+                <h2 style="margin-bottom:20px; border-bottom:1px solid #333; padding-bottom:10px; color:#d4af37;">Online Payment Verification</h2>
+                
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Order Ref</th>
+                                <th>Customer</th>
+                                <th>Method</th>
+                                <th>Amount</th>
+                                <th>Ref #</th>
+                                <th>Status</th>
+                                <th>Screenshot</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="cashierPaymentsBody"></tbody>
+                    </table>
+                </div>
+            </div>
+
+            
+            <div id="admin" class="tab-pane" style="display:none;">
+                <h2 style="margin-bottom:20px; border-bottom:1px solid #333; padding-bottom:10px; color:#d4af37;">Payment Monitoring</h2>
+                
+                <div style="display:flex; gap:10px; margin-bottom:20px;">
+                    <button class="btn" onclick="filterPayments('all')" style="background:#d4af37; color:#000;">All</button>
+                    <button class="btn" onclick="filterPayments('paid')" style="background:#28a745; color:#fff;">Paid</button>
+                    <button class="btn" onclick="filterPayments('pending')" style="background:#ffc107; color:#000;">Pending</button>
+                    <button class="btn" onclick="filterPayments('failed')" style="background:#dc3545; color:#fff;">Failed</button>
+                </div>
+                
+                <div class="table-container">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Order Ref</th>
+                                <th>Customer</th>
+                                <th>Method</th>
+                                <th>Amount</th>
+                                <th>Date</th>
+                                <th>Status</th>
+                                <th>Account</th>
+                                <th>Ref #</th>
+                            </tr>
+                        </thead>
+                        <tbody id="adminPaymentsBody"></tbody>
+                    </table>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="auth.js"></script>
+    <script src="ONE.js"></script>
+    <script>
+        // Initialize
+        const currentUser = JSON.parse(localStorage.getItem("currentUser")) || {};
+        document.getElementById("userName").textContent = currentUser.firstname || currentUser.username || "Guest";
+        document.getElementById("userRole").textContent = (currentUser.role || "customer").toUpperCase();
+
+        const paymentButtons = document.querySelectorAll(".sidebar-nav a[data-tab]");
+        paymentButtons.forEach(tab => {
+            tab.addEventListener("click", function() {
+                paymentButtons.forEach(t => t.classList.remove("active"));
+                this.classList.add("active");
+                const target = this.dataset.tab;
+                document.querySelectorAll(".tab-pane").forEach(pane => pane.style.display = "none");
+                if (document.getElementById(target)) {
+                    document.getElementById(target).style.display = "block";
+                }
+                if (target === 'cashier') loadCashierPayments();
+                if (target === 'admin') loadAdminPayments();
+            });
+        });
+
+        function checkRole(role) {
+            if (currentUser.role !== role && role !== 'customer') {
+                alert("Access denied for this role");
+                return false;
+            }
+            return true;
+        }
+
+        let selectedPaymentMethod = 'cod';
+
+        function selectPaymentMethod(method) {
+            selectedPaymentMethod = method;
+            document.querySelectorAll(".payment-card").forEach(card => card.style.borderColor = "#ccc");
+            event.target.closest(".payment-card").style.borderColor = "#d4af37";
+            document.getElementById("paymentDetailsForm").style.display = "block";
+            document.getElementById("codDetails").style.display = "none";
+            document.getElementById("onlinePaymentDetails").style.display = "none";
+            if (method === 'cod') {
+                document.getElementById("codDetails").style.display = "block";
+            } else {
+                document.getElementById("onlinePaymentDetails").style.display = "block";
+                const qrDiv = document.getElementById("qrCodeDisplay");
+                qrDiv.innerHTML = `<div style="width:100%; height:100%; background:linear-gradient(45deg, #d4af37, #111); display:flex; align-items:center; justify-content:center; color:white; font-weight:bold;">QR: ${method.toUpperCase()}</div>`;
+            }
+        }
+
+        function loadCashierPayments() {
+            const payments = JSON.parse(localStorage.getItem("payments")) || [];
+            const tbody = document.getElementById("cashierPaymentsBody");
+            if (!tbody) return;
+            tbody.innerHTML = "";
+            payments.filter(p => p.method !== 'Cash on Delivery').forEach(payment => {
+                tbody.innerHTML += `
+                    <tr>
+                        <td>${payment.order_id}</td>
+                        <td>${payment.customer}</td>
+                        <td>${payment.method}</td>
+                        <td>₱${Number(payment.amount || 0).toFixed(2)}</td>
+                        <td>${payment.reference_no || 'N/A'}</td>
+                        <td>${payment.account_name || 'N/A'}</td>
+                        <td><span class="badge badge-${payment.status.toLowerCase()}">${payment.status}</span></td>
+                        <td>
+                            <button class="btn btn-sm" onclick="updatePaymentStatus('${payment.id}', 'Paid')">Mark Paid</button>
+                            <button class="btn btn-danger btn-sm" onclick="updatePaymentStatus('${payment.id}', 'Failed')">Fail</button>
+                        </td>
+                    </tr>
+                `;
+            });
+        }
+
+        function loadAdminPayments(filter = 'all') {
+            const payments = JSON.parse(localStorage.getItem("payments")) || [];
+            const tbody = document.getElementById("adminPaymentsBody");
+            if (!tbody) return;
+            tbody.innerHTML = "";
+            payments.filter(payment => filter === 'all' || payment.status.toLowerCase() === filter.toLowerCase()).forEach(payment => {
+                tbody.innerHTML += `
+                    <tr>
+                        <td>${payment.order_id}</td>
+                        <td>${payment.customer}</td>
+                        <td>${payment.method}</td>
+                        <td>₱${Number(payment.amount || 0).toFixed(2)}</td>
+                        <td>${new Date(payment.created_at).toLocaleString()}</td>
+                        <td><span class="badge badge-${payment.status.toLowerCase()}">${payment.status}</span></td>
+                        <td>${payment.account_name || 'N/A'}</td>
+                        <td>${payment.reference_no || 'N/A'}</td>
+                    </tr>
+                `;
+            });
+        }
+
+        function filterPayments(status) {
+            loadAdminPayments(status);
+        }
+
+        function updatePaymentStatus(paymentId, status) {
+            const payments = JSON.parse(localStorage.getItem("payments")) || [];
+            const payment = payments.find(p => p.id === paymentId);
+            if (!payment) return;
+            payment.status = status;
+            localStorage.setItem("payments", JSON.stringify(payments));
+            const orders = JSON.parse(localStorage.getItem("orders")) || [];
+            const order = orders.find(o => o.id === payment.order_id);
+            if (order) {
+                order.payment_status = status;
+                if (status === 'Paid') order.status = 'Completed';
+                localStorage.setItem("orders", JSON.stringify(orders));
+            }
+            loadCashierPayments();
+            loadAdminPayments();
+            showToast(`Payment ${status}`, 'success');
+        }
+
+        document.getElementById("submitOnlinePaymentBtn").addEventListener("click", () => {
+            const accountName = document.getElementById("paymentAccountName").value.trim();
+            const reference = document.getElementById("paymentRefNumber").value.trim();
+            const screenshot = document.getElementById("paymentScreenshot")?.files?.[0];
+            if (!accountName || !reference) {
+                alert("Please enter account name and reference number.");
+                return;
+            }
+            const payments = JSON.parse(localStorage.getItem("payments")) || [];
+            const newPayment = {
+                id: 'PAY' + Date.now(),
+                order_id: 'N/A',
+                customer: currentUser.firstname || currentUser.username || 'Guest',
+                amount: 0,
+                method: selectedPaymentMethod === 'gcash' ? 'GCash' : 'PayMaya',
+                status: 'Pending',
+                account_name: accountName,
+                reference_no: reference,
+                screenshot_name: screenshot ? screenshot.name : '',
+                screenshot_data: '',
+                created_at: new Date().toISOString()
+            };
+            if (screenshot) {
+                const reader = new FileReader();
+                reader.onload = () => {
+                    newPayment.screenshot_data = reader.result;
+                    payments.push(newPayment);
+                    localStorage.setItem("payments", JSON.stringify(payments));
+                    alert("Payment request submitted. Cashier will verify shortly.");
+                    loadCashierPayments();
+                    loadAdminPayments();
+                };
+                reader.readAsDataURL(screenshot);
+            } else {
+                payments.push(newPayment);
+                localStorage.setItem("payments", JSON.stringify(payments));
+                alert("Payment request submitted. Cashier will verify shortly.");
+                loadCashierPayments();
+                loadAdminPayments();
+            }
+        });
+
+        loadCashierPayments();
+        loadAdminPayments();
+    </script>
+</body>
+</html>
+
+

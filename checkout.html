@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Black Cup</title>
+    <link rel="stylesheet" href="ONE.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<header class="navbar">
+    <div class="navbar-left">
+        <div id="userGreeting">Hello, Guest</div>
+    </div>
+    <div class="navbar-center">
+        <div id="name">BLACK CUP</div>
+    </div>
+    <div class="navbar-right">
+        <nav>
+          <a href="index.html">Home</a>
+          <a href="menu.html">Menu</a>
+          <a href="orders.html">Orders</a>
+          <a href="receipt.html">Receipt</a>
+          <a href="loyalty.html">Loyalty</a>
+          <a href="contact.html">Contact</a>
+          <a href="#" class="btn-logout" style="color:#dc3545;">Logout</a>
+        </nav>
+    </div>
+</header>
+
+<div class="checkout-layout">
+    <h2 style="text-align:center; margin-bottom:30px; color:#d4af37;">Checkout</h2>
+    <div id="draftNotice" style="display:none; margin:0 auto 20px; max-width:800px; background:#1f1f1f; border:1px solid #d4af37; color:#fff; padding:12px 16px; border-radius:8px; text-align:center; font-size:14px;"></div>
+    
+    <div class="checkout-grid">
+        <div>
+            <form id="checkoutForm" class="checkout-form">
+                <h3 style="margin-bottom:15px; color:#d4af37;">Delivery Details</h3>
+                <div class="input-group">
+                    <label>Delivery Type</label>
+                    <select name="delivery_type" id="deliveryType">
+                        <option value="delivery">Delivery</option>
+                        <option value="pickup">Store Pickup</option>
+                    </select>
+                </div>
+                
+                <div class="input-group">
+                    <label>Contact Number</label>
+                    <input type="text" name="contact" required placeholder="09XXXXXXXXX">
+                </div>
+                <div id="addressFields">
+                    <div class="input-group">
+                        <label>Barangay</label>
+                        <select name="barangay" id="barangaySelect" required>
+                            <option value="">Select Barangay</option>
+                        </select>
+                    </div>
+                    <div class="input-group">
+                        <label>Street Address</label>
+                        <input type="text" name="street" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Landmark <span style="font-size:10px; color:#aaa;">(Optional)</span></label>
+                        <input type="text" name="landmark">
+                    </div>
+                    <div class="input-group">
+                        <label>Distance (km) <span style="font-size:10px; color:#aaa;">(Optional)</span></label>
+                        <input type="number" name="delivery_km" id="deliveryKm" min="0" step="0.1" placeholder="e.g. 2.5">
+                    </div>
+                </div>
+                
+                <div class="input-group">
+                    <label>Notes to Cashier<span style="font-size:10px; color:#aaa;">(Optional)</span></label>
+                    <textarea name="notes" rows="2"></textarea>
+                </div>
+
+                <div class="input-group" id="scheduledTimeGroup">
+                    <label>Scheduled Date & Time <span style="font-size:10px; color:#aaa;">(Optional)</span></label>
+                    <input type="datetime-local" name="scheduled_at" id="scheduledAt">
+                </div>
+                
+                <h3 style="margin:20px 0 15px 0; color:#d4af37;">Payment</h3>
+                <div class="input-group">
+                    <label>Payment Method</label>
+                    <select name="payment_method" id="paymentMethod">
+                        <option value="cash">Cash on Delivery / Pickup</option>
+                        <option value="gcash">GCash</option>
+                        <option value="paymaya">PayMaya</option>
+                    </select>
+                </div>
+                
+                <div id="paymentFields" style="display:none;">
+                    <p style="font-size:12px; margin-bottom:10px; color:#ccc;">Please send payment to 09123456789 and enter the reference number below. Upload your payment screenshot when using e-payments.</p>
+                    <div class="input-group">
+                        <label>Account Name</label>
+                        <input type="text" name="account_name">
+                    </div>
+                    <div class="input-group">
+                        <label>Reference No.</label>
+                        <input type="text" name="reference_no">
+                    </div>
+                    <div class="input-group">
+                        <label>Payment Screenshot</label>
+                        <input type="file" name="payment_screenshot" id="paymentScreenshot" accept="image/*">
+                    </div>
+                </div>
+                
+                <h3 style="margin:20px 0 15px 0; color:#d4af37;">Vouchers</h3>
+                <div class="input-group">
+                    <select name="voucher_id" id="voucherSelect">
+                        <option value="">-- No voucher selected --</option>
+                    </select>
+                </div>
+
+                <div class="input-group" style="margin-top:20px;">
+                    <label style="display:flex; align-items:center; gap:10px; cursor:pointer;">
+                        <input type="checkbox" id="agreeTerms" required>
+                        <span>I agree to the <a href="#" style="color:#d4af37; text-decoration:underline;" onclick="showTerms()">Terms and Conditions</a>.</span>
+                    </label>
+                </div>
+
+                <button type="submit" class="btn btn-primary" style="width:100%; margin-top:20px;">Place Order</button>
+                <button type="button" class="btn" style="width:100%; margin-top:10px; border-color:#555; color:#fff;" onclick="window.location.href='menu.html'">Back to Menu</button>
+            </form>
+            
+            
+            <div id="termsModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.8); z-index:9999; justify-content:center; align-items:center;">
+                <div style="background:#111; padding:30px; border-radius:8px; border:1px solid #333; max-width:500px; width:90%; max-height:80vh; display:flex; flex-direction:column;">
+                    <h3 style="color:#d4af37; margin-bottom:15px;">Terms & Conditions</h3>
+                    <div id="termsContent" style="overflow-y:auto; flex:1; color:#ccc; line-height:1.6; font-size:14px; margin-bottom:20px;">
+                        Loading...
+                    </div>
+                    <button type="button" class="btn btn-primary" onclick="closeTerms()">I Understand</button>
+                </div>
+            </div>
+            
+            <div id="receiptPreview" class="receipt" style="display:none; margin-top:20px;">
+                
+            </div>
+        </div>
+        
+        <div>
+            <div class="receipt">
+                <h3 style="text-align:center;">ORDER SUMMARY</h3>
+                <hr>
+                <ul id="orderList" style="list-style:none; padding:0; font-size:14px; min-height:100px;">
+                </ul>
+                <hr>
+                <div style="display:flex; justify-content:space-between; margin-bottom:5px;">
+                    <span>Subtotal</span>
+                    <span id="subtotal">₱0.00</span>
+                </div>
+                <div style="display:flex; justify-content:space-between; margin-bottom:5px;">
+                    <span>Delivery Fee (₱6/km)</span>
+                    <span id="deliveryFee">₱0.00</span>
+                </div>
+                <div style="display:flex; justify-content:space-between; margin-bottom:5px; color:green;">
+                    <span>Discount</span>
+                    <span id="discount">-₱0.00</span>
+                </div>
+                <div style="display:flex; justify-content:space-between; margin-bottom:5px;">
+                    <span>Payment Method</span>
+                    <span id="paymentMethodSummary">Cash on Delivery / Pickup</span>
+                </div>
+                <hr>
+                <div style="display:flex; justify-content:space-between; font-weight:bold; font-size:18px;">
+                    <span>TOTAL</span>
+                    <span id="total">₱0.00</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer class="footer">
+    <p>&copy; 2026 Black Cup. All Rights Reserved.</p>
+</footer>
+
+<script src="ONE.js"></script>
+</body>
+</html>
+
+
+
